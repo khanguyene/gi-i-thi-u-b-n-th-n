@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu bản thân - Nguyễn Minh Kha</title>
+    <!-- Font chữ & Icon set FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .profile {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 620px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .profile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Khung ảnh bên trái */
+        .img-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #00c6ff);
+            background-size: 200% 200%;
+            animation: gradientBorder 4s ease infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            transition: transform 0.5s ease;
+        }
+
+        .profile:hover img {
+            transform: scale(1.06) rotate(2deg);
+        }
+
+        /* Khung thông tin bên phải */
+        .info-container {
+            flex-grow: 1;
+        }
+
+        .info-container h2 {
+            font-size: 22px;
+            color: #1a2a3a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border-left: 4px solid #4facfe;
+            font-size: 14px;
+            color: #4a5568;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .info-item:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .info-item strong {
+            color: #2d3748;
+        }
+
+        /* Các nút Mạng xã hội */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Hiệu ứng màu riêng cho từng nút khi Hover */
+        .social-btn.facebook:hover {
+            background: #1877f2;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+        }
+
+        .social-btn.github:hover {
+            background: #24292e;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(36, 41, 46, 0.4);
+        }
+
+        .social-btn.zalo:hover {
+            background: #0068ff;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(0, 104, 255, 0.4);
+        }
+
+        .social-btn.email:hover {
+            background: #ea4335;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+        }
+
+        /* Tự động căn chỉnh trên di động */
+        @media (max-width: 500px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .info-item {
+                text-align: left;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Giới Thiệu Về Bản Thân</h1>
+
+    <div class="profile">
+        <!-- Ảnh bên trái -->
+        <div class="img-container">
+            <img src="https://i.ibb.co/GfjYtKr5/7a8d30314f32cf6c9623.jpg" alt="Nguyễn Minh Kha">
+        </div>
+        
+        <!-- Thông tin bên phải -->
+        <div class="info-container">
+            <h2>Bản Thân Tôi</h2>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <strong>Họ tên:</strong> Nguyễn Minh Kha
+                </div>
+                <div class="info-item">
+                    <strong>Ngày sinh:</strong> 18/02/2007
+                </div>
+                <div class="info-item">
+                    <strong>Trình độ học vấn:</strong> 12/12
+                </div>
+                <div class="info-item">
+                    <strong>Sở thích:</strong> Yêu Toán, Thích Lập trình
+                </div>
+            </div>
+
+            <!-- Nút liên kết MXH -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/19XA8zdNyV/" target="_blank" class="social-btn facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                
+               
+                <a href="mailto:example@gmail.com" class="social-btn email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
